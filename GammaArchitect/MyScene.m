@@ -60,6 +60,7 @@
                 SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:grassTexture];
                 sprite.position = CGPointMake(col * 64 + 32, row * 64 + 32);
                 sprite.paused = YES;
+                sprite.zPosition = -1.0;
                 [self addChild:sprite];
                 [self.baseTiles addObject:sprite];
             }
@@ -76,30 +77,20 @@
         CGPoint location = [touch locationInNode:self];
         if (!self.menuVisible)
         {
-            self.nuclearReactorMenu = [[SKLabelNode alloc]init];
-            [self.nuclearReactorMenu setText:@"Nuclear Reactor"];
-            [self.nuclearReactorMenu setFontSize:14];
-            self.nuclearReactorMenu.position = location;
-            [self addChild:[self fireButtonNodeAt:location]];
-            [self addChild:self.nuclearReactorMenu];
+            [self addChild:[self reactorNodeAt:location]];
             self.menuVisible = YES;
         }
         else
         {
             SKNode *node = [self nodeAtPoint:location];
-            if ([node.name isEqualToString:@"fireButtonNode"]) {
-                [self.nuclearReactorMenu removeFromParent];
-                [self.nuclearReactorButton removeFromParent];
+            if ([node.name isEqualToString:@"reactorButton"]) {
                 NuclearReactor *reactor = [[NuclearReactor alloc]initWithPosition:location];
                 [self.reactors addObject:reactor];
                 [self addChild:reactor.reactor];
+                [node removeFromParent];
+                self.menuVisible = NO;
             }
         }
-        /*
-        NuclearReactor *reactor = [[NuclearReactor alloc]initWithPosition:location];
-        [self.reactors addObject:reactor];
-        [self addChild:reactor.reactor];
-        */
     }
 }
 
@@ -107,14 +98,14 @@
     /* Called before each frame is rendered */
 }
 
-//fire button
-- (SKSpriteNode *)fireButtonNodeAt:(CGPoint)location
+//Reactor button is dynamically added
+- (SKSpriteNode *)reactorNodeAt:(CGPoint)location
 {
-    SKSpriteNode *fireNode = [SKSpriteNode spriteNodeWithImageNamed:@"fireButton.png"];
-    fireNode.position = location;
-    fireNode.name = @"fireButtonNode";//how the node is identified later
-    fireNode.zPosition = 1.0;
-    return fireNode;
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"standard-button-off.png"];
+    node.position = location;
+    node.name = @"reactorButton";//how the node is identified later
+    node.zPosition = 1.0;
+    return node;
 }
 
 @end

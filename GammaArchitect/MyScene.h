@@ -10,6 +10,6 @@
 
 @interface MyScene : SKScene
 
-- (SKSpriteNode *)fireButtonNodeAt: (CGPoint)location;
+- (SKSpriteNode *)reactorNodeAt: (CGPoint)location;
 
 @end

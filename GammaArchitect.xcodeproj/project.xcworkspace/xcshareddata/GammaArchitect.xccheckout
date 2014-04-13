@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9F06318C-0017-49CB-B474-3BEE57E69D05</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GammaArchitect</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2572D734-106D-4A70-9F08-CE33DDD480EB</key>
+		<string>https://github.com/KingWapo/GammaArchitect.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GammaArchitect.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2572D734-106D-4A70-9F08-CE33DDD480EB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/KingWapo/GammaArchitect.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2572D734-106D-4A70-9F08-CE33DDD480EB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2572D734-106D-4A70-9F08-CE33DDD480EB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GammaArchitectGit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

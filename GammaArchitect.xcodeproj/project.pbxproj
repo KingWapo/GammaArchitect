@@ -18,6 +18,14 @@
 		846A478518FB447E00BB6B3D /* wide-button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477D18FB447E00BB6B3D /* wide-button-on.png */; };
 		846A478818FB48A700BB6B3D /* grassTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A478618FB48A700BB6B3D /* grassTile.png */; };
 		846A478918FB48A700BB6B3D /* nuclearReactor.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A478718FB48A700BB6B3D /* nuclearReactor.png */; };
+		846A478C18FB661A00BB6B3D /* GeigerCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A478B18FB661A00BB6B3D /* GeigerCounter.m */; };
+		846A478F18FB6A2E00BB6B3D /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A478E18FB6A2E00BB6B3D /* Worker.m */; };
+		846A479218FB6C9C00BB6B3D /* Fence.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A479118FB6C9C00BB6B3D /* Fence.m */; };
+		846A479418FC5D7800BB6B3D /* geigerCounter.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 846A479318FC5D7800BB6B3D /* geigerCounter.jpeg */; };
+		846A479918FCF18200BB6B3D /* backgroundTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A479518FCF18200BB6B3D /* backgroundTemp.png */; };
+		846A479A18FCF18200BB6B3D /* bottomUI.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A479618FCF18200BB6B3D /* bottomUI.png */; };
+		846A479B18FCF18200BB6B3D /* needle.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A479718FCF18200BB6B3D /* needle.png */; };
+		846A479C18FCF18200BB6B3D /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A479818FCF18200BB6B3D /* score.png */; };
 		84EA3EDA18E27BB500A4FAF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EA3ED918E27BB500A4FAF3 /* Foundation.framework */; };
 		84EA3EDC18E27BB500A4FAF3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EA3EDB18E27BB500A4FAF3 /* CoreGraphics.framework */; };
 		84EA3EDE18E27BB500A4FAF3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EA3EDD18E27BB500A4FAF3 /* UIKit.framework */; };
@@ -60,6 +68,17 @@
 		846A477D18FB447E00BB6B3D /* wide-button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wide-button-on.png"; path = "images/Buttons/wide-button-on.png"; sourceTree = SOURCE_ROOT; };
 		846A478618FB48A700BB6B3D /* grassTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grassTile.png; path = images/grassTile.png; sourceTree = SOURCE_ROOT; };
 		846A478718FB48A700BB6B3D /* nuclearReactor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nuclearReactor.png; path = images/nuclearReactor.png; sourceTree = SOURCE_ROOT; };
+		846A478A18FB661A00BB6B3D /* GeigerCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeigerCounter.h; sourceTree = "<group>"; };
+		846A478B18FB661A00BB6B3D /* GeigerCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeigerCounter.m; sourceTree = "<group>"; };
+		846A478D18FB6A2E00BB6B3D /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
+		846A478E18FB6A2E00BB6B3D /* Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Worker.m; sourceTree = "<group>"; };
+		846A479018FB6C9C00BB6B3D /* Fence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fence.h; sourceTree = "<group>"; };
+		846A479118FB6C9C00BB6B3D /* Fence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fence.m; sourceTree = "<group>"; };
+		846A479318FC5D7800BB6B3D /* geigerCounter.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = geigerCounter.jpeg; path = images/geigerCounter.jpeg; sourceTree = SOURCE_ROOT; };
+		846A479518FCF18200BB6B3D /* backgroundTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundTemp.png; path = images/backgroundTemp.png; sourceTree = SOURCE_ROOT; };
+		846A479618FCF18200BB6B3D /* bottomUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bottomUI.png; path = images/bottomUI.png; sourceTree = SOURCE_ROOT; };
+		846A479718FCF18200BB6B3D /* needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = needle.png; path = images/needle.png; sourceTree = SOURCE_ROOT; };
+		846A479818FCF18200BB6B3D /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = score.png; path = images/score.png; sourceTree = SOURCE_ROOT; };
 		84EA3ED618E27BB500A4FAF3 /* GammaArchitect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GammaArchitect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EA3ED918E27BB500A4FAF3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84EA3EDB18E27BB500A4FAF3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,8 +189,14 @@
 				84EA3EF418E27BB500A4FAF3 /* ViewController.m */,
 				84EA3EF618E27BB500A4FAF3 /* MyScene.h */,
 				84EA3EF718E27BB500A4FAF3 /* MyScene.m */,
+				846A479018FB6C9C00BB6B3D /* Fence.h */,
+				846A479118FB6C9C00BB6B3D /* Fence.m */,
+				846A478A18FB661A00BB6B3D /* GeigerCounter.h */,
+				846A478B18FB661A00BB6B3D /* GeigerCounter.m */,
 				84EA3F1B18E37CBE00A4FAF3 /* NuclearReactor.h */,
 				84EA3F1C18E37CBE00A4FAF3 /* NuclearReactor.m */,
+				846A478D18FB6A2E00BB6B3D /* Worker.h */,
+				846A478E18FB6A2E00BB6B3D /* Worker.m */,
 				84EA3EF918E27BB500A4FAF3 /* Spaceship.png */,
 				84EA3EFB18E27BB500A4FAF3 /* Images.xcassets */,
 				84EA3EE218E27BB500A4FAF3 /* Supporting Files */,
@@ -211,6 +236,11 @@
 		84EA3F1818E3598700A4FAF3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				846A479518FCF18200BB6B3D /* backgroundTemp.png */,
+				846A479618FCF18200BB6B3D /* bottomUI.png */,
+				846A479718FCF18200BB6B3D /* needle.png */,
+				846A479818FCF18200BB6B3D /* score.png */,
+				846A479318FC5D7800BB6B3D /* geigerCounter.jpeg */,
 				846A478618FB48A700BB6B3D /* grassTile.png */,
 				846A478718FB48A700BB6B3D /* nuclearReactor.png */,
 				846A477518FB446400BB6B3D /* buttons */,
@@ -298,11 +328,16 @@
 				846A478518FB447E00BB6B3D /* wide-button-on.png in Resources */,
 				846A478418FB447E00BB6B3D /* wide-button-off.png in Resources */,
 				846A477E18FB447E00BB6B3D /* dialog-short.png in Resources */,
+				846A479A18FCF18200BB6B3D /* bottomUI.png in Resources */,
 				846A478818FB48A700BB6B3D /* grassTile.png in Resources */,
 				84EA3EFC18E27BB500A4FAF3 /* Images.xcassets in Resources */,
+				846A479918FCF18200BB6B3D /* backgroundTemp.png in Resources */,
 				846A478118FB447E00BB6B3D /* square-button-on.png in Resources */,
 				84EA3EF218E27BB500A4FAF3 /* Main_iPad.storyboard in Resources */,
 				846A478318FB447E00BB6B3D /* standard-button-on.png in Resources */,
+				846A479418FC5D7800BB6B3D /* geigerCounter.jpeg in Resources */,
+				846A479C18FCF18200BB6B3D /* score.png in Resources */,
+				846A479B18FCF18200BB6B3D /* needle.png in Resources */,
 				846A477F18FB447E00BB6B3D /* dialog-standard.png in Resources */,
 				846A478918FB48A700BB6B3D /* nuclearReactor.png in Resources */,
 				846A478018FB447E00BB6B3D /* square-button-off.png in Resources */,
@@ -328,10 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EA3F1D18E37CBE00A4FAF3 /* NuclearReactor.m in Sources */,
+				846A478F18FB6A2E00BB6B3D /* Worker.m in Sources */,
 				84EA3EF818E27BB500A4FAF3 /* MyScene.m in Sources */,
+				846A479218FB6C9C00BB6B3D /* Fence.m in Sources */,
 				84EA3EF518E27BB500A4FAF3 /* ViewController.m in Sources */,
 				84EA3EEC18E27BB500A4FAF3 /* AppDelegate.m in Sources */,
 				84EA3EE818E27BB500A4FAF3 /* main.m in Sources */,
+				846A478C18FB661A00BB6B3D /* GeigerCounter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,14 @@
 //
-//  NuclearReactor.m
+//  GeigerCounter.m
 //  GammaArchitect
 //
-//  Created by Holcombe on 3/26/14.
+//  Created by Holcombe on 4/13/14.
 //  Copyright (c) 2014 Holcombe. All rights reserved.
 //
 
-#import "NuclearReactor.h"
+#import "GeigerCounter.h"
 
-
-// Private variables
-@interface NuclearReactor()
+@interface GeigerCounter()
 
 @property int level;
 
@@ -20,13 +18,14 @@
 
 @end
 
-@implementation NuclearReactor
+@implementation GeigerCounter
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        self.reactor = [SKSpriteNode spriteNodeWithImageNamed:@"nuclearReactor"];
+        self.geiger = [SKSpriteNode spriteNodeWithImageNamed:@"geigerCounter.jpeg"];
+        self.price = 10000;
         self.level = 1;
         self.previousUpdateTime = [NSDate date];
         self.updateValue = 5;
@@ -39,24 +38,32 @@
     self = [self init];
     if (self)
     {
-        self.reactor.position = location;
+        self.geiger.position = location;
     }
     return self;
 }
 
--(CGFloat)updateReactor
+-(id)initWithReactor:(SKNode *)reactor
+{
+    CGPoint location = reactor.position;
+    location.x -= 32;
+    location.y -= 32;
+    self = [self initWithPosition:location];
+    return self;
+}
+
+-(BOOL)updateGeiger
 {
     NSDate *currentDate = [NSDate date];
     
     NSTimeInterval passedTime = [currentDate timeIntervalSinceDate:self.previousUpdateTime];
     
-    if (passedTime > 1)
+    if (passedTime > 10)
     {
-        
         self.previousUpdateTime = currentDate;
-        return self.updateValue * self.level * passedTime;
+        return YES;
     }
-    return 0;
+    return NO;
 }
 
 @end

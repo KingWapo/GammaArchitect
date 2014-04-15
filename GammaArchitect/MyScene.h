@@ -10,6 +10,9 @@
 
 @interface MyScene : SKScene
 
-- (SKSpriteNode *)reactorNodeAt: (CGPoint)location;
+@property CGFloat reactorToPowerUpdate;
+
+- (SKSpriteNode *)reactorMenuNodeAt: (CGPoint)location;
+- (SKNode *)upgradeMenuNodeAt: (CGPoint)location;
 
 @end

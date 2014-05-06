@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841D9C1819191CCC0042FEA8 /* bushfence.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C1719191CCC0042FEA8 /* bushfence.png */; };
 		846A477218E9FDDB00BB6B3D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A477018E9FDDB00BB6B3D /* Main_iPhone.storyboard */; };
 		846A477E18FB447E00BB6B3D /* dialog-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477618FB447E00BB6B3D /* dialog-short.png */; };
 		846A477F18FB447E00BB6B3D /* dialog-standard.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477718FB447E00BB6B3D /* dialog-standard.png */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		841D9C1719191CCC0042FEA8 /* bushfence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bushfence.png; path = images/bushfence.png; sourceTree = SOURCE_ROOT; };
 		846A477118E9FDDB00BB6B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		846A477618FB447E00BB6B3D /* dialog-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-short.png"; path = "images/Buttons/dialog-short.png"; sourceTree = SOURCE_ROOT; };
 		846A477718FB447E00BB6B3D /* dialog-standard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-standard.png"; path = "images/Buttons/dialog-standard.png"; sourceTree = SOURCE_ROOT; };
@@ -236,6 +238,7 @@
 		84EA3F1818E3598700A4FAF3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				841D9C1719191CCC0042FEA8 /* bushfence.png */,
 				846A479518FCF18200BB6B3D /* backgroundTemp.png */,
 				846A479618FCF18200BB6B3D /* bottomUI.png */,
 				846A479718FCF18200BB6B3D /* needle.png */,
@@ -326,6 +329,7 @@
 			files = (
 				84EA3EFA18E27BB500A4FAF3 /* Spaceship.png in Resources */,
 				846A478518FB447E00BB6B3D /* wide-button-on.png in Resources */,
+				841D9C1819191CCC0042FEA8 /* bushfence.png in Resources */,
 				846A478418FB447E00BB6B3D /* wide-button-off.png in Resources */,
 				846A477E18FB447E00BB6B3D /* dialog-short.png in Resources */,
 				846A479A18FCF18200BB6B3D /* bottomUI.png in Resources */,

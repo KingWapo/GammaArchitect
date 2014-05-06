@@ -9,12 +9,14 @@
 #import "MyScene.h"
 #import "NuclearReactor.h"
 #import "GeigerCounter.h"
+#import "Fence.h"
 
 @interface MyScene ()
 
 @property NSMutableArray *baseTiles;
 @property NSMutableArray *reactors;
 @property NSMutableArray *geigers;
+@property NSMutableArray *fences;
 
 @property CGFloat screenWidth;
 @property CGFloat screenHeight;
@@ -22,12 +24,14 @@
 // Balancing variables
 @property CGFloat money;
 @property CGFloat power;
+@property CGFloat radiation;
 @property CGFloat cost;
 @property CGFloat powerToMoneyModifier;
 
 // Prices of the objects
 @property CGFloat nuclearReactorPrice;
 @property CGFloat geigerCounterPrice;
+@property CGFloat fencePrice;
 
 // Bool to determine if menu on touch,
 // it should create the menu or select
@@ -136,6 +140,16 @@
                 self.money -= self.geigerCounterPrice;
                 self.upgradeMenuVisible = NO;
             }
+            else if ([node.name isEqualToString:@"fenceButton"] &&
+                     self.money > self.fencePrice) {
+                Fence *fence = [[Fence alloc] initWithReactor:self.clickedReactor];
+                fence.fence.name = @"fence";
+                [self.fences addObject:fence];
+                [self addChild:fence.fence];
+                [node removeFromParent];
+                self.money -= self.fencePrice;
+                self.upgradeMenuVisible = NO;
+            }
             else
             {
                 [self.menu removeFromParent];
@@ -150,6 +164,7 @@
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
+    self.power = 0;
     for (NuclearReactor *reactor in self.reactors) {
         self.power += [reactor updateReactor];
     }
@@ -159,6 +174,14 @@
         {
             // update display to show radiation levels.
             NSLog(@"Rad Levels: %f", self.power);
+        }
+    }
+    self.radiation = self.power * 2;
+    for (Fence *fence in self.fences)
+    {
+        if ([fence updateFence])
+        {
+            self.radiation -= fence.radDampening;
         }
     }
     
@@ -181,14 +204,20 @@
 - (SKNode *)upgradeMenuNodeAt:(CGPoint)location
 {
     SKNode *menu = [[SKNode alloc]init];
+    
     // Geiger counter purchase
     SKSpriteNode *geiger = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
     geiger.position = location;
     geiger.name = @"geigerButton";//how the node is identified later
     geiger.zPosition = 1.0;
+    SKSpriteNode *fence = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
+    fence.position = CGPointMake(location.x, location.y + 64);
+    fence.name = @"fenceButton";
+    fence.zPosition = 1.0;
     
     
     [menu addChild:geiger];
+    [menu addChild:fence];
     return menu;
 }
 

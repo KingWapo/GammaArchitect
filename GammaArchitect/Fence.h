@@ -12,8 +12,12 @@
 
 @property SKSpriteNode *fence;
 
+@property CGFloat radDampening;
+
 -(id)initWithPosition: (CGPoint) location;
 
--(void)updateFence;
+-(id)initWithReactor: (SKNode *) reactor;
+
+-(BOOL)updateFence;
 
 @end

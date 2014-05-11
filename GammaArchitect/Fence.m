@@ -25,6 +25,7 @@
         self.fence = [[SKSpriteNode alloc]initWithImageNamed:@"bushfence.png"];
         self.durability = 100;
         self.radDampening = 100;
+        self.previousUpdateTime = [NSDate date];
     }
     return self;
 }

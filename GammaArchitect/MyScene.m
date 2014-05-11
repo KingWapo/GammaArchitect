@@ -38,6 +38,7 @@
 // from the menu.
 @property BOOL menuVisible;
 @property BOOL upgradeMenuVisible;
+
 @property SKLabelNode *nuclearReactorMenu;
 @property SKNode *nuclearReactorButton;
 
@@ -45,6 +46,9 @@
 @property SKNode *upgradeMenu;
 
 @property SKNode *clickedReactor;
+
+@property NSNumberFormatter *formatter;
+@property SKLabelNode *scoreLabel;
 
 
 @end
@@ -90,6 +94,17 @@
         score.anchorPoint = CGPointMake(0, 0);
         score.position = CGPointMake(185, 85);
         [self addChild:score];
+        
+        // Initialize the Labels
+        self.formatter = [[NSNumberFormatter alloc]init];
+        [self.formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
+        self.scoreLabel = [[SKLabelNode alloc]init];
+        self.scoreLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringFromNumber:[NSNumber numberWithFloat: self.money]]];
+        self.scoreLabel.fontSize = 14;
+        self.scoreLabel.fontColor = [SKColor whiteColor];
+        self.scoreLabel.position = CGPointMake(230, 95);
+        [self addChild:self.scoreLabel];
     }
     return self;
 }
@@ -169,13 +184,6 @@
         self.power += [reactor updateReactor];
     }
     
-    for (GeigerCounter *geiger in self.geigers) {
-        if ([geiger updateGeiger])
-        {
-            // update display to show radiation levels.
-            NSLog(@"Rad Levels: %f", self.power);
-        }
-    }
     self.radiation = self.power * 2;
     for (Fence *fence in self.fences)
     {
@@ -185,9 +193,18 @@
         }
     }
     
+    for (GeigerCounter *geiger in self.geigers) {
+        if ([geiger updateGeiger])
+        {
+            // update display to show radiation levels.
+            NSLog(@"Rad Levels: %f, %f", self.power, self.radiation);
+        }
+    }
     self.money += self.power * self.powerToMoneyModifier;
     
-    NSLog(@"Money: %f", self.money);
+    self.scoreLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringFromNumber:[NSNumber numberWithFloat: self.money]]];
+    
+    //NSLog(@"Money: %f", self.money);
 }
 
 //Reactor button is dynamically added

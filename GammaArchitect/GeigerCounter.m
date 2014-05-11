@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        //self.geiger = [SKSpriteNode spriteNodeWithImageNamed:@"geigerCounter.jpeg"];
+        self.geiger = [SKSpriteNode spriteNodeWithImageNamed:@"geigerCounter.jpeg"];
         self.price = 10000;
         self.level = 1;
         self.previousUpdateTime = [NSDate date];

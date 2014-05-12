@@ -91,8 +91,9 @@
         
         SKSpriteNode *purchaseBuilding = [[SKSpriteNode alloc]initWithImageNamed:@"purchaseBuilding"];
         purchaseBuilding.anchorPoint = CGPointMake(0, 0);
-        purchaseBuilding.position = CGPointMake(0, self.screenHeight - 362);
+        purchaseBuilding.position = CGPointMake(130, 165);
         purchaseBuilding.name = @"purchase";
+        purchaseBuilding.zPosition = 3;
         [self addChild:purchaseBuilding];
         
         self.needle = [[SKSpriteNode alloc]initWithImageNamed:@"needle"];
@@ -159,7 +160,7 @@
         {
             if ([node.name isEqualToString:@"reactorButton"] &&
                 self.money >= self.nuclearReactorPrice) {
-                NuclearReactor *reactor = [[NuclearReactor alloc]initWithPosition:location];
+                NuclearReactor *reactor = [[NuclearReactor alloc]initWithPosition:CGPointMake(100, 365)];
                 reactor.reactor.name = @"reactor";
                 reactor.reactor.zPosition = 2;
                 [self.reactors addObject:reactor];
@@ -170,7 +171,7 @@
             }
             else if ([node.name isEqualToString:@"geigerButton"] &&
                 self.money >= self.geigerCounterPrice) {
-                GeigerCounter *geiger = [[GeigerCounter alloc] initWithReactor:self.clickedReactor];
+                GeigerCounter *geiger = [[GeigerCounter alloc] initWithPosition:CGPointMake(-300, 0)];
                 geiger.geiger.name = @"geiger";
                 [self.geigers addObject:geiger];
                 [self addChild:geiger.geiger];
@@ -180,10 +181,16 @@
             }
             else if ([node.name isEqualToString:@"fenceButton"] &&
                      self.money >= self.fencePrice) {
-                Fence *fence = [[Fence alloc] initWithReactor:self.clickedReactor];
-                fence.fence.name = @"fence";
+                Fence *fence = [[Fence alloc] initWithPosition:CGPointMake(0, self.screenHeight - 362)];
+                fence.fenceTop.name = @"fence";
+                fence.fenceBottom.name = @"fence";
+                fence.fenceLeft.name = @"fence";
+                fence.fenceRight.name = @"fence";
                 [self.fences addObject:fence];
-                [self addChild:fence.fence];
+                [self addChild:fence.fenceTop];
+                [self addChild:fence.fenceBottom];
+                [self addChild:fence.fenceLeft];
+                [self addChild:fence.fenceRight];
                 self.money -= self.fencePrice;
                 [self.upgradeMenu removeFromParent];
                 self.upgradeMenuVisible = NO;
@@ -214,7 +221,10 @@
         self.radiation -= fence.radDampening;
         if (fence.deterioration > 100)
         {
-            [fence.fence removeFromParent];
+            [fence.fenceTop removeFromParent];
+            [fence.fenceBottom removeFromParent];
+            [fence.fenceLeft removeFromParent];
+            [fence.fenceRight removeFromParent];
             [self.fences removeObject:fence];
         }
     }
@@ -229,8 +239,6 @@
     self.money += self.power * self.powerToMoneyModifier;
     
     self.scoreLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringFromNumber:[NSNumber numberWithFloat: self.money]]];
-    
-    //NSLog(@"Money: %f", self.money);
 }
 
 //Reactor button is dynamically added
@@ -239,7 +247,7 @@
     SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"standard-button-off.png"];
     node.position = location;
     node.name = @"reactorButton";//how the node is identified later
-    node.zPosition = 1.0;
+    node.zPosition = 4;
     return node;
 }
 
@@ -252,11 +260,11 @@
     SKSpriteNode *geiger = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
     geiger.position = location;
     geiger.name = @"geigerButton";//how the node is identified later
-    geiger.zPosition = 1.0;
+    geiger.zPosition = 4;
     SKSpriteNode *fence = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
     fence.position = CGPointMake(location.x, location.y + 64);
     fence.name = @"fenceButton";
-    fence.zPosition = 1.0;
+    fence.zPosition = 4;
     
     
     [menu addChild:geiger];

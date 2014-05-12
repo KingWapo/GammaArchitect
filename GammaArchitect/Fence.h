@@ -10,7 +10,10 @@
 
 @interface Fence : NSObject
 
-@property SKSpriteNode *fence;
+@property SKSpriteNode *fenceTop;
+@property SKSpriteNode *fenceBottom;
+@property SKSpriteNode *fenceLeft;
+@property SKSpriteNode *fenceRight;
 
 @property CGFloat radDampening;
 

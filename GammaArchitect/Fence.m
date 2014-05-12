@@ -22,7 +22,10 @@
 {
     self = [super init];
     if (self) {
-        self.fence = [[SKSpriteNode alloc]initWithImageNamed:@"bushfence.png"];
+        self.fenceTop = [[SKSpriteNode alloc]initWithImageNamed:@"fenceTop"];
+        self.fenceBottom = [[SKSpriteNode alloc]initWithImageNamed:@"fenceBottom"];
+        self.fenceLeft = [[SKSpriteNode alloc]initWithImageNamed:@"fenceLeft"];
+        self.fenceRight = [[SKSpriteNode alloc]initWithImageNamed:@"fenceRight"];
         self.durability = 100;
         self.deterioration = 0;
         self.radDampening = 10;
@@ -35,7 +38,14 @@
 {
     self = [self init];
     if (self) {
-        self.fence.position = location;
+        self.fenceTop.anchorPoint = CGPointMake(0, 0);
+        self.fenceBottom.anchorPoint = CGPointMake(0, 0);
+        self.fenceLeft.anchorPoint = CGPointMake(0, 0);
+        self.fenceRight.anchorPoint = CGPointMake(0, 0);
+        self.fenceTop.position = location;
+        self.fenceBottom.position = location;
+        self.fenceLeft.position = location;
+        self.fenceRight.position = location;
     }
     return self;
 }

@@ -26,7 +26,7 @@
 {
     self = [super init];
     if (self) {
-        self.reactor = [SKSpriteNode spriteNodeWithImageNamed:@"reactor"];
+        self.reactor = [SKSpriteNode spriteNodeWithImageNamed:@"reactorFinal"];
         self.level = 1;
         self.previousUpdateTime = [NSDate date];
         self.updateValue = 5;

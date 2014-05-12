@@ -13,6 +13,11 @@
 		841D9C2019206B360042FEA8 /* fenceTB.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C1B19206B360042FEA8 /* fenceTB.png */; };
 		841D9C2119206B360042FEA8 /* reactor.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C1C19206B360042FEA8 /* reactor.png */; };
 		841D9C2219206B360042FEA8 /* workerHut.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C1D19206B360042FEA8 /* workerHut.png */; };
+		841D9C281920865C0042FEA8 /* fenceBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C231920865C0042FEA8 /* fenceBottom.png */; };
+		841D9C291920865C0042FEA8 /* fenceLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C241920865C0042FEA8 /* fenceLeft.png */; };
+		841D9C2A1920865C0042FEA8 /* fenceRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C251920865C0042FEA8 /* fenceRight.png */; };
+		841D9C2B1920865C0042FEA8 /* fenceTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C261920865C0042FEA8 /* fenceTop.png */; };
+		841D9C2C1920865C0042FEA8 /* reactorFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C271920865C0042FEA8 /* reactorFinal.png */; };
 		846A477218E9FDDB00BB6B3D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A477018E9FDDB00BB6B3D /* Main_iPhone.storyboard */; };
 		846A477E18FB447E00BB6B3D /* dialog-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477618FB447E00BB6B3D /* dialog-short.png */; };
 		846A477F18FB447E00BB6B3D /* dialog-standard.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477718FB447E00BB6B3D /* dialog-standard.png */; };
@@ -69,6 +74,11 @@
 		841D9C1B19206B360042FEA8 /* fenceTB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fenceTB.png; path = images/fenceTB.png; sourceTree = SOURCE_ROOT; };
 		841D9C1C19206B360042FEA8 /* reactor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reactor.png; path = images/reactor.png; sourceTree = SOURCE_ROOT; };
 		841D9C1D19206B360042FEA8 /* workerHut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workerHut.png; path = images/workerHut.png; sourceTree = SOURCE_ROOT; };
+		841D9C231920865C0042FEA8 /* fenceBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fenceBottom.png; path = images/fenceBottom.png; sourceTree = SOURCE_ROOT; };
+		841D9C241920865C0042FEA8 /* fenceLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fenceLeft.png; path = images/fenceLeft.png; sourceTree = SOURCE_ROOT; };
+		841D9C251920865C0042FEA8 /* fenceRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fenceRight.png; path = images/fenceRight.png; sourceTree = SOURCE_ROOT; };
+		841D9C261920865C0042FEA8 /* fenceTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fenceTop.png; path = images/fenceTop.png; sourceTree = SOURCE_ROOT; };
+		841D9C271920865C0042FEA8 /* reactorFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reactorFinal.png; path = images/reactorFinal.png; sourceTree = SOURCE_ROOT; };
 		846A477118E9FDDB00BB6B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		846A477618FB447E00BB6B3D /* dialog-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-short.png"; path = "images/Buttons/dialog-short.png"; sourceTree = SOURCE_ROOT; };
 		846A477718FB447E00BB6B3D /* dialog-standard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-standard.png"; path = "images/Buttons/dialog-standard.png"; sourceTree = SOURCE_ROOT; };
@@ -248,6 +258,11 @@
 		84EA3F1818E3598700A4FAF3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				841D9C231920865C0042FEA8 /* fenceBottom.png */,
+				841D9C241920865C0042FEA8 /* fenceLeft.png */,
+				841D9C251920865C0042FEA8 /* fenceRight.png */,
+				841D9C261920865C0042FEA8 /* fenceTop.png */,
+				841D9C271920865C0042FEA8 /* reactorFinal.png */,
 				841D9C1919206B360042FEA8 /* background.png */,
 				841D9C1A19206B360042FEA8 /* fenceLR.png */,
 				841D9C1B19206B360042FEA8 /* fenceTB.png */,
@@ -342,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841D9C291920865C0042FEA8 /* fenceLeft.png in Resources */,
 				84EA3EFA18E27BB500A4FAF3 /* Spaceship.png in Resources */,
 				846A478518FB447E00BB6B3D /* wide-button-on.png in Resources */,
 				841D9C1819191CCC0042FEA8 /* bushfence.png in Resources */,
@@ -350,17 +366,21 @@
 				841D9C2019206B360042FEA8 /* fenceTB.png in Resources */,
 				846A479A18FCF18200BB6B3D /* bottomUI.png in Resources */,
 				846A478818FB48A700BB6B3D /* grassTile.png in Resources */,
+				841D9C2A1920865C0042FEA8 /* fenceRight.png in Resources */,
 				84EA3EFC18E27BB500A4FAF3 /* Images.xcassets in Resources */,
 				846A479918FCF18200BB6B3D /* backgroundTemp.png in Resources */,
 				841D9C1E19206B360042FEA8 /* background.png in Resources */,
+				841D9C2B1920865C0042FEA8 /* fenceTop.png in Resources */,
 				846A478118FB447E00BB6B3D /* square-button-on.png in Resources */,
 				84EA3EF218E27BB500A4FAF3 /* Main_iPad.storyboard in Resources */,
+				841D9C281920865C0042FEA8 /* fenceBottom.png in Resources */,
 				846A478318FB447E00BB6B3D /* standard-button-on.png in Resources */,
 				846A479418FC5D7800BB6B3D /* geigerCounter.jpeg in Resources */,
 				846A479C18FCF18200BB6B3D /* score.png in Resources */,
 				841D9C1F19206B360042FEA8 /* fenceLR.png in Resources */,
 				841D9C2119206B360042FEA8 /* reactor.png in Resources */,
 				846A479B18FCF18200BB6B3D /* needle.png in Resources */,
+				841D9C2C1920865C0042FEA8 /* reactorFinal.png in Resources */,
 				846A477F18FB447E00BB6B3D /* dialog-standard.png in Resources */,
 				846A478918FB48A700BB6B3D /* nuclearReactor.png in Resources */,
 				846A478018FB447E00BB6B3D /* square-button-off.png in Resources */,

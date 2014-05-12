@@ -50,6 +50,8 @@
 @property NSNumberFormatter *formatter;
 @property SKLabelNode *scoreLabel;
 
+@property SKSpriteNode *needle;
+
 
 @end
 
@@ -67,16 +69,18 @@
         self.money = 100000;
         self.power = 0;
         self.cost = 0;
-        self.powerToMoneyModifier = 0.75; // How much money do you get for the amount of power
+        self.powerToMoneyModifier = 0.001; // How much money do you get for the amount of power
         
         // Initialize the prices
         self.nuclearReactorPrice = 70000;
         self.geigerCounterPrice = 10000;
+        self.fencePrice = 20000;
         
         
         //self.baseTiles = [[NSMutableArray alloc]init];
         self.reactors = [[NSMutableArray alloc]init];
         self.geigers = [[NSMutableArray alloc]init];
+        self.fences = [[NSMutableArray alloc]init];
         
         // Set up UI
         SKSpriteNode *background = [[SKSpriteNode alloc]initWithImageNamed:@"backgroundTemp"];
@@ -85,14 +89,22 @@
                                                                        // the image height
         [self addChild:background];
         
+        self.needle = [[SKSpriteNode alloc]initWithImageNamed:@"needle"];
+        self.needle.anchorPoint = CGPointMake(1, 0);
+        self.needle.position = CGPointMake(85, 80);
+        self.needle.zPosition = 2;
+        [self addChild:self.needle];
+        
         SKSpriteNode *ui = [[SKSpriteNode alloc]initWithImageNamed:@"bottomUI"];
         ui.anchorPoint = CGPointMake(0, 0);
         ui.position = CGPointMake(-10, 0);
+        ui.name = @"ui";
         [self addChild:ui];
         
         SKSpriteNode *score = [[SKSpriteNode alloc]initWithImageNamed:@"score"];
         score.anchorPoint = CGPointMake(0, 0);
         score.position = CGPointMake(185, 85);
+        score.name = @"score";
         [self addChild:score];
         
         // Initialize the Labels
@@ -104,6 +116,7 @@
         self.scoreLabel.fontSize = 14;
         self.scoreLabel.fontColor = [SKColor whiteColor];
         self.scoreLabel.position = CGPointMake(230, 95);
+        self.scoreLabel.name = @"score";
         [self addChild:self.scoreLabel];
     }
     return self;
@@ -111,9 +124,9 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+        NSLog(@"Position clicked: %f, %f", location.x, location.y);
         
         SKNode *node = [self nodeAtPoint:location];
         
@@ -126,7 +139,8 @@
                 [self addChild:self.upgradeMenu];
                 self.upgradeMenuVisible = YES;
             }
-            else
+            else if(![node.name isEqualToString:@"ui"] &&
+                    ![node.name isEqualToString:@"score"])
             {
                 self.menu = [self reactorMenuNodeAt:location];
                 [self addChild:self.menu];
@@ -136,9 +150,10 @@
         else
         {
             if ([node.name isEqualToString:@"reactorButton"] &&
-                self.money > self.nuclearReactorPrice) {
+                self.money >= self.nuclearReactorPrice) {
                 NuclearReactor *reactor = [[NuclearReactor alloc]initWithPosition:location];
                 reactor.reactor.name = @"reactor";
+                reactor.reactor.zPosition = 2;
                 [self.reactors addObject:reactor];
                 [self addChild:reactor.reactor];
                 [node removeFromParent];
@@ -146,23 +161,23 @@
                 self.menuVisible = NO;
             }
             else if ([node.name isEqualToString:@"geigerButton"] &&
-                self.money > self.geigerCounterPrice) {
+                self.money >= self.geigerCounterPrice) {
                 GeigerCounter *geiger = [[GeigerCounter alloc] initWithReactor:self.clickedReactor];
                 geiger.geiger.name = @"geiger";
                 [self.geigers addObject:geiger];
                 [self addChild:geiger.geiger];
-                [node removeFromParent];
                 self.money -= self.geigerCounterPrice;
+                [self.upgradeMenu removeFromParent];
                 self.upgradeMenuVisible = NO;
             }
             else if ([node.name isEqualToString:@"fenceButton"] &&
-                     self.money > self.fencePrice) {
+                     self.money >= self.fencePrice) {
                 Fence *fence = [[Fence alloc] initWithReactor:self.clickedReactor];
                 fence.fence.name = @"fence";
                 [self.fences addObject:fence];
                 [self addChild:fence.fence];
-                [node removeFromParent];
                 self.money -= self.fencePrice;
+                [self.upgradeMenu removeFromParent];
                 self.upgradeMenuVisible = NO;
             }
             else
@@ -187,9 +202,12 @@
     self.radiation = self.power * 2;
     for (Fence *fence in self.fences)
     {
-        if ([fence updateFence])
+        [fence updateFence];
+        self.radiation -= fence.radDampening;
+        if (fence.deterioration > 100)
         {
-            self.radiation -= fence.radDampening;
+            [fence.fence removeFromParent];
+            [self.fences removeObject:fence];
         }
     }
     

@@ -14,10 +14,12 @@
 
 @property CGFloat radDampening;
 
+@property CGFloat deterioration;
+
 -(id)initWithPosition: (CGPoint) location;
 
 -(id)initWithReactor: (SKNode *) reactor;
 
--(BOOL)updateFence;
+-(void)updateFence;
 
 @end

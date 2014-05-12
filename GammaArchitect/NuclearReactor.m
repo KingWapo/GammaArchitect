@@ -51,7 +51,7 @@
     NSTimeInterval passedTime = [currentDate timeIntervalSinceDate:self.previousUpdateTime];
     
     self.previousUpdateTime = currentDate;
-    return self.updateValue * self.level * passedTime;
+    return self.updateValue * self.level * passedTime * 100;
 }
 
 @end

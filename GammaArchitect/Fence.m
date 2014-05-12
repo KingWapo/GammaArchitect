@@ -24,7 +24,8 @@
     if (self) {
         self.fence = [[SKSpriteNode alloc]initWithImageNamed:@"bushfence.png"];
         self.durability = 100;
-        self.radDampening = 100;
+        self.deterioration = 0;
+        self.radDampening = 10;
         self.previousUpdateTime = [NSDate date];
     }
     return self;
@@ -47,18 +48,15 @@
     }
     return self;
 }
--(BOOL)updateFence
+-(void)updateFence
 {
     NSDate *currentDate = [NSDate date];
     
     NSTimeInterval passedTime = [currentDate timeIntervalSinceDate:self.previousUpdateTime];
     
-    if (passedTime > 10)
-    {
-        self.previousUpdateTime = currentDate;
-        return YES;
-    }
-    return NO;
+    self.previousUpdateTime = currentDate;
+    self.deterioration += passedTime * 100.0 / (24 * 60 * 60);
+    
 }
 
 @end

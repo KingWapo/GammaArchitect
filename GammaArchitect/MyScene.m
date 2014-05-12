@@ -89,6 +89,12 @@
                                                                        // the image height
         [self addChild:background];
         
+        SKSpriteNode *purchaseBuilding = [[SKSpriteNode alloc]initWithImageNamed:@"purchaseBuilding"];
+        purchaseBuilding.anchorPoint = CGPointMake(0, 0);
+        purchaseBuilding.position = CGPointMake(0, self.screenHeight - 362);
+        purchaseBuilding.name = @"purchase";
+        [self addChild:purchaseBuilding];
+        
         self.needle = [[SKSpriteNode alloc]initWithImageNamed:@"needle"];
         self.needle.anchorPoint = CGPointMake(1, 0);
         self.needle.position = CGPointMake(85, 80);
@@ -132,19 +138,21 @@
         
         if (!self.menuVisible && !self.upgradeMenuVisible)
         {
-            if ([node.name isEqualToString:@"reactor"])
+            if ([node.name isEqualToString:@"purchase"])
             {
-                self.clickedReactor = node;
-                self.upgradeMenu =[self upgradeMenuNodeAt:location];
-                [self addChild:self.upgradeMenu];
-                self.upgradeMenuVisible = YES;
-            }
-            else if(![node.name isEqualToString:@"ui"] &&
-                    ![node.name isEqualToString:@"score"])
-            {
-                self.menu = [self reactorMenuNodeAt:location];
-                [self addChild:self.menu];
-                self.menuVisible = YES;
+                if (self.reactors.count == 0)
+                {
+                    self.menu = [self reactorMenuNodeAt:location];
+                    [self addChild:self.menu];
+                    self.menuVisible = YES;
+                }
+                else
+                {
+                    self.clickedReactor = node;
+                    self.upgradeMenu =[self upgradeMenuNodeAt:location];
+                    [self addChild:self.upgradeMenu];
+                    self.upgradeMenuVisible = YES;
+                }
             }
         }
         else

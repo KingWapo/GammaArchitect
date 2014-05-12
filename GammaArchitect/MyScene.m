@@ -38,6 +38,7 @@
 // from the menu.
 @property BOOL menuVisible;
 @property BOOL upgradeMenuVisible;
+@property BOOL needleVisible;
 
 @property SKLabelNode *nuclearReactorMenu;
 @property SKNode *nuclearReactorButton;
@@ -72,7 +73,7 @@
         self.powerToMoneyModifier = 0.001; // How much money do you get for the amount of power
         
         // Initialize the prices
-        self.nuclearReactorPrice = 70000;
+        self.nuclearReactorPrice = 7;//0000;
         self.geigerCounterPrice = 10000;
         self.fencePrice = 20000;
         
@@ -100,7 +101,8 @@
         self.needle.anchorPoint = CGPointMake(1, 0);
         self.needle.position = CGPointMake(85, 80);
         self.needle.zPosition = 2;
-        [self addChild:self.needle];
+        self.needleVisible = NO;
+        //[self addChild:self.needle];
         
         SKSpriteNode *ui = [[SKSpriteNode alloc]initWithImageNamed:@"bottomUI"];
         ui.anchorPoint = CGPointMake(0, 0);
@@ -143,14 +145,14 @@
             {
                 if (self.reactors.count == 0)
                 {
-                    self.menu = [self reactorMenuNodeAt:location];
+                    self.menu = [self reactorMenuNodeAt:CGPointMake(200, 400)];
                     [self addChild:self.menu];
                     self.menuVisible = YES;
                 }
                 else
                 {
                     self.clickedReactor = node;
-                    self.upgradeMenu =[self upgradeMenuNodeAt:location];
+                    self.upgradeMenu =[self upgradeMenuNodeAt:CGPointMake(200, 400 - 64)];
                     [self addChild:self.upgradeMenu];
                     self.upgradeMenuVisible = YES;
                 }
@@ -165,7 +167,8 @@
                 reactor.reactor.zPosition = 2;
                 [self.reactors addObject:reactor];
                 [self addChild:reactor.reactor];
-                [node removeFromParent];
+                [self.menu removeFromParent];
+                [self.upgradeMenu removeFromParent];
                 self.money -= self.nuclearReactorPrice;
                 self.menuVisible = NO;
             }
@@ -178,6 +181,12 @@
                 self.money -= self.geigerCounterPrice;
                 [self.upgradeMenu removeFromParent];
                 self.upgradeMenuVisible = NO;
+                if (!self.needleVisible)
+                {
+                    [self addChild:self.needle];
+                    self.needleVisible = YES;
+                    [self updateNeedle];
+                }
             }
             else if ([node.name isEqualToString:@"fenceButton"] &&
                      self.money >= self.fencePrice) {
@@ -218,7 +227,7 @@
     for (Fence *fence in self.fences)
     {
         [fence updateFence];
-        self.radiation -= fence.radDampening;
+        self.radiation = self.radiation / 2;
         if (fence.deterioration > 100)
         {
             [fence.fenceTop removeFromParent];
@@ -233,21 +242,39 @@
         if ([geiger updateGeiger])
         {
             // update display to show radiation levels.
+            [self updateNeedle];
             NSLog(@"Rad Levels: %f, %f", self.power, self.radiation);
         }
     }
+    
     self.money += self.power * self.powerToMoneyModifier;
     
     self.scoreLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringFromNumber:[NSNumber numberWithFloat: self.money]]];
 }
 
-//Reactor button is dynamically added
-- (SKSpriteNode *)reactorMenuNodeAt:(CGPoint)location
+-(void)updateNeedle
 {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"standard-button-off.png"];
-    node.position = location;
-    node.name = @"reactorButton";//how the node is identified later
-    node.zPosition = 4;
+    self.needle.zRotation = 45 - self.radiation / 100;
+}
+
+//Reactor button is dynamically added
+- (SKNode *)reactorMenuNodeAt:(CGPoint)location
+{
+    SKNode *node = [[SKNode alloc]init];
+    SKSpriteNode *reactor = [SKSpriteNode spriteNodeWithImageNamed:@"purchaseButton"];
+    reactor.position = location;
+    reactor.name = @"reactorButton";//how the node is identified later
+    reactor.zPosition = 4;
+    SKLabelNode *reactorLabel = [[SKLabelNode alloc]init];
+    reactorLabel.text = @"Buy Reactor: $70,000";
+    reactorLabel.name = @"reactorButton";//how the node is identified later
+    reactorLabel.fontSize = 12;
+    reactorLabel.fontColor = [SKColor whiteColor];
+    reactorLabel.position = reactor.position;
+    reactorLabel.zPosition = 4;
+    
+    [node addChild:reactor];
+    [node addChild:reactorLabel];
     return node;
 }
 
@@ -257,18 +284,47 @@
     SKNode *menu = [[SKNode alloc]init];
     
     // Geiger counter purchase
-    SKSpriteNode *geiger = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
+    SKSpriteNode *reactor = [SKSpriteNode spriteNodeWithImageNamed:@"purchaseButton"];
+    reactor.position = CGPointMake(location.x, location.y + 48);
+    reactor.name = @"reactorButton";//how the node is identified later
+    reactor.zPosition = 4;
+    SKSpriteNode *geiger = [SKSpriteNode spriteNodeWithImageNamed:@"purchaseButton"];
     geiger.position = location;
     geiger.name = @"geigerButton";//how the node is identified later
     geiger.zPosition = 4;
-    SKSpriteNode *fence = [SKSpriteNode spriteNodeWithImageNamed:@"square-button-off.png"];
-    fence.position = CGPointMake(location.x, location.y + 64);
+    SKSpriteNode *fence = [SKSpriteNode spriteNodeWithImageNamed:@"purchaseButton"];
+    fence.position = CGPointMake(location.x, location.y - 48);
     fence.name = @"fenceButton";
     fence.zPosition = 4;
     
+    SKLabelNode *reactorLabel = [[SKLabelNode alloc]init];
+    reactorLabel.text = @"Upgrade Reactor: $70,000";
+    reactorLabel.name = @"reactorButton";
+    reactorLabel.fontSize = 12;
+    reactorLabel.fontColor = [SKColor whiteColor];
+    reactorLabel.position = reactor.position;
+    reactorLabel.zPosition = 4;
+    SKLabelNode *geigerLabel = [[SKLabelNode alloc]init];
+    geigerLabel.text = @"Upgrade Geiger: $10,000";
+    geigerLabel.name = @"geigerButton";
+    geigerLabel.fontSize = 12;
+    geigerLabel.fontColor = [SKColor whiteColor];
+    geigerLabel.position = geiger.position;
+    geigerLabel.zPosition = 4;
+    SKLabelNode *fenceLabel = [[SKLabelNode alloc]init];
+    fenceLabel.text = @"Upgrade Fence: $20,000";
+    fenceLabel.name = @"fenceButton";
+    fenceLabel.fontSize = 12;
+    fenceLabel.fontColor = [SKColor whiteColor];
+    fenceLabel.position = fence.position;
+    fenceLabel.zPosition = 4;
     
+    [menu addChild:reactor];
     [menu addChild:geiger];
     [menu addChild:fence];
+    [menu addChild:reactorLabel];
+    [menu addChild:geigerLabel];
+    [menu addChild:fenceLabel];
     return menu;
 }
 

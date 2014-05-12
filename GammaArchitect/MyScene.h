@@ -15,4 +15,6 @@
 - (SKSpriteNode *)reactorMenuNodeAt: (CGPoint)location;
 - (SKNode *)upgradeMenuNodeAt: (CGPoint)location;
 
+-(void) updateNeedle;
+
 @end

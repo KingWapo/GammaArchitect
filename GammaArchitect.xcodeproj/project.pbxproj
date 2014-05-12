@@ -20,6 +20,7 @@
 		841D9C2C1920865C0042FEA8 /* reactorFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C271920865C0042FEA8 /* reactorFinal.png */; };
 		841D9C2E192087790042FEA8 /* purchaseBuilding.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C2D192087790042FEA8 /* purchaseBuilding.png */; };
 		841D9C30192087820042FEA8 /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C2F192087820042FEA8 /* building.png */; };
+		841D9C3219208F560042FEA8 /* purchaseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D9C3119208F560042FEA8 /* purchaseButton.png */; };
 		846A477218E9FDDB00BB6B3D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A477018E9FDDB00BB6B3D /* Main_iPhone.storyboard */; };
 		846A477E18FB447E00BB6B3D /* dialog-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477618FB447E00BB6B3D /* dialog-short.png */; };
 		846A477F18FB447E00BB6B3D /* dialog-standard.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A477718FB447E00BB6B3D /* dialog-standard.png */; };
@@ -83,6 +84,7 @@
 		841D9C271920865C0042FEA8 /* reactorFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reactorFinal.png; path = images/reactorFinal.png; sourceTree = SOURCE_ROOT; };
 		841D9C2D192087790042FEA8 /* purchaseBuilding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purchaseBuilding.png; path = images/purchaseBuilding.png; sourceTree = SOURCE_ROOT; };
 		841D9C2F192087820042FEA8 /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building.png; path = images/building.png; sourceTree = SOURCE_ROOT; };
+		841D9C3119208F560042FEA8 /* purchaseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purchaseButton.png; path = images/purchaseButton.png; sourceTree = SOURCE_ROOT; };
 		846A477118E9FDDB00BB6B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		846A477618FB447E00BB6B3D /* dialog-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-short.png"; path = "images/Buttons/dialog-short.png"; sourceTree = SOURCE_ROOT; };
 		846A477718FB447E00BB6B3D /* dialog-standard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-standard.png"; path = "images/Buttons/dialog-standard.png"; sourceTree = SOURCE_ROOT; };
@@ -262,6 +264,7 @@
 		84EA3F1818E3598700A4FAF3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				841D9C3119208F560042FEA8 /* purchaseButton.png */,
 				841D9C2F192087820042FEA8 /* building.png */,
 				841D9C2D192087790042FEA8 /* purchaseBuilding.png */,
 				841D9C231920865C0042FEA8 /* fenceBottom.png */,
@@ -363,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841D9C3219208F560042FEA8 /* purchaseButton.png in Resources */,
 				841D9C291920865C0042FEA8 /* fenceLeft.png in Resources */,
 				84EA3EFA18E27BB500A4FAF3 /* Spaceship.png in Resources */,
 				846A478518FB447E00BB6B3D /* wide-button-on.png in Resources */,

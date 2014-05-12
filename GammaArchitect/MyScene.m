@@ -83,7 +83,7 @@
         self.fences = [[NSMutableArray alloc]init];
         
         // Set up UI
-        SKSpriteNode *background = [[SKSpriteNode alloc]initWithImageNamed:@"backgroundTemp"];
+        SKSpriteNode *background = [[SKSpriteNode alloc]initWithImageNamed:@"background"];
         background.anchorPoint = CGPointMake(0, 0);
         background.position = CGPointMake(0, self.screenHeight - 362); // Add on a y of the screen height -
                                                                        // the image height
